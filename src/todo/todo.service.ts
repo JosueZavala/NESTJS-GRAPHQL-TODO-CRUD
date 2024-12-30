@@ -9,7 +9,20 @@ export class TodoService {
     { id: 1, description: 'piedra del Alma', done: false },
     { id: 2, description: 'piedra del Espacio', done: false },
     { id: 3, description: 'piedra del Poder', done: false },
+    { id: 4, description: 'piedra del Tiempo', done: false },
   ];
+
+  get totalTodos() {
+    return this.todos.length;
+  }
+
+  get completedTodos() {
+    return this.todos.filter((todo) => todo.done === true).length;
+  }
+
+  get pendingTodos() {
+    return this.todos.filter((todo) => todo.done === false).length;
+  }
 
   findAll(statusArgs: StatusArgs): Todo[] {
     const { status } = statusArgs;
